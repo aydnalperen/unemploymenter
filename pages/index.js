@@ -28,7 +28,7 @@ export const getServerSideProps = async () =>{
 const Home = ({allResults})=> {
     
     const [results, setResults] = React.useState(allResults)
-    const [selectedCountry, setCountry] = React.useState('us')
+    const [selectedCountry, setCountry] = React.useState({value : "us", label : "United States"})
     const countryChangeHandler = async(country)=>{
         let results = await fetchCountryData(country.value)
         setCountry(country)
@@ -36,6 +36,7 @@ const Home = ({allResults})=> {
     }
 
     const fetchCountryData = async (country)=>{
+        
         const res = await fetch(
             `http://api.worldbank.org/v2/country/${country}/indicator/SL.UEM.TOTL.ZS?format=json`
         )
