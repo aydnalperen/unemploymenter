@@ -1,5 +1,6 @@
 import React from 'react';
 import Layout from '../components/layout'
+import SelectBox from '../components/selectBox';
 
 export const getServerSideProps = async (ctx) =>{
 
@@ -20,6 +21,7 @@ const Home = ({allResults})=> {
     return (
         <>
             <Layout>
+                <SelectBox/>
             <h1>All Posts</h1>
             {allResults?.map((post, idx) => (
                 <div key={idx}>{post}</div>))}
