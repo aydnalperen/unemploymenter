@@ -1,6 +1,5 @@
 import React from 'react';
 import Layout from '../components/layout'
-import SelectBox from '../components/selectBox';
 import Select from 'react-select';
 
 
@@ -60,7 +59,6 @@ const Home = ({allResults})=> {
             />
             <h1>{selectedCountry.label}</h1>
 
-            <h1>All Posts</h1>
             {results?.map((post, idx) => (
                 <div key={idx}>{post}</div>))}
             </Layout>
