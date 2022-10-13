@@ -1,7 +1,8 @@
 import React from 'react';
 import Layout from '../components/layout'
 import Select from 'react-select';
-
+import Chart from '../components/chart'
+import ChartComp from '../components/chart';
 
 const countryOptions = [
     {value : "us", label : "United States"},
@@ -58,7 +59,9 @@ const Home = ({allResults})=> {
                 placeHolder = {selectedCountry}
             />
             <h1>{selectedCountry.label}</h1>
+            
 
+            <ChartComp/>
             {results?.map((post, idx) => (
                 <div key={idx}>{post}</div>))}
             </Layout>
