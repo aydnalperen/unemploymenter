@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Layout from '../components/layout'
 import Select from 'react-select';
 import Chart from '../components/chart'
@@ -18,7 +18,7 @@ export const getServerSideProps = async () =>{
 
     return {
         props :{
-            allResults : result[1].map((year) => year.value)
+            allResults : result[1].map((year) => ({date:year.date, value:year.value, country: year.country.value}))
         }
     }
 }  
@@ -29,6 +29,11 @@ const Home = ({allResults})=> {
     
     const [results, setResults] = React.useState(allResults)
     const [selectedCountry, setCountry] = React.useState({value : "us", label : "United States"})
+
+
+    // const [labels, setLabels] = useState([])
+    // const [values, setValues] = useState([])
+
     const countryChangeHandler = async(country)=>{
         let results = await fetchCountryData(country.value)
         setCountry(country)
@@ -43,8 +48,9 @@ const Home = ({allResults})=> {
     
         let result = await res.json()
     
-        return result[1]?.map((year)=> year.value)
+        return result[1]?.map((year)=> ({date:year.date, value:year.value, country: year.country.value}))
     }
+
     return (
         <>
             <Layout>
@@ -58,12 +64,9 @@ const Home = ({allResults})=> {
                 onChange = {countryChangeHandler}
                 placeHolder = {selectedCountry}
             />
-            <h1>{selectedCountry.label}</h1>
-            
+            <h1>{selectedCountry.label}</h1> 
 
-            <ChartComp/>
-            {results?.map((post, idx) => (
-                <div key={idx}>{post}</div>))}
+            <Chart unData={results}/>
             </Layout>
         </>
     )

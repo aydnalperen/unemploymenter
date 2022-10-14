@@ -1,23 +1,16 @@
 import Chart from 'chart.js/auto';
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {Bar, Line, Scatter, Bubble } from "react-chartjs-2"
 
 
-const data = {
-    labels : ["1", "2", "3"],
-    datasets: [
-        {
-            data: [1, 2, 3 ]
-        }
-    ],
-}
+
 
 const options = {
     plugin : {
         legend : {
-            display : false,
+            display : true,
         },
     },
     elements : {
@@ -26,7 +19,7 @@ const options = {
             borderWith : 2,
             borderColor : "red",
             fill : "start",
-            backgroundColor : "green"
+            
         },
         point : {
             radius : 0,
@@ -35,18 +28,29 @@ const options = {
     },
     scales :  {
         xAxis : {
-            display: false,
+            display: true,
         },
         yAxis : {
-            display: false,
+            display: true,
         },
     },
 };
-const ChartComp = ()=>{
+const ChartComp = ({unData})=>{
 
+    const data = {
+        labels : unData.map((year)=> year.date),
+        datasets: [
+            {
+                label : unData[0].country,
+                data: unData.map((year)=>year.value),
+            }
+        ],
+    }
     return (
         <>
-            <Line data = {data}  options = {options} />
+            <div className='w-1/2'>
+                <Line data = {data}  options = {options} />
+            </div>
         </>
     )
 }
