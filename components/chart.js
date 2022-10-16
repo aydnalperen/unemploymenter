@@ -35,21 +35,21 @@ const options = {
         },
     },
 };
-const ChartComp = ({unData})=>{
+const ChartComp = ({years, values})=>{
 
     const data = {
-        labels : unData.map((year)=> year.date),
+        labels : years,
         datasets: [
             {
-                label : unData[0].country,
-                data: unData.map((year)=>year.value),
+                label : "% of Unemployment",
+                data: values,
             }
         ],
     }
     return (
         <>
             <div className='w-1/2'>
-                <Line data = {data}  options = {options} />
+                <Bar data = {data}  options = {options} />
             </div>
         </>
     )

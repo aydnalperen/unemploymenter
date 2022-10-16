@@ -16,28 +16,39 @@ export const getServerSideProps = async () =>{
     )
     let result = await res.json()
 
+    let years = result[1]
+
+    years = years.filter(function(n){
+        return n.value != null;
+    }).reverse()
+    
     return {
         props :{
-            allResults : result[1].map((year) => ({date:year.date, value:year.value, country: year.country.value}))
+            initYears : years.map((year) => year.date),
+            initValues : years.map((year)=> year.value)
         }
     }
 }  
 
 
 
-const Home = ({allResults})=> {
+const Home = ({initYears, initValues})=> {
     
-    const [results, setResults] = React.useState(allResults)
-    const [selectedCountry, setCountry] = React.useState({value : "us", label : "United States"})
+    const [selectedCountry, setCountry] = useState({value : "us", label : "United States"})
 
+    const [years, setYears] = useState(initYears)
+    const [values, setValues] = useState(initValues)
 
-    // const [labels, setLabels] = useState([])
-    // const [values, setValues] = useState([])
 
     const countryChangeHandler = async(country)=>{
         let results = await fetchCountryData(country.value)
+
+        results = results.filter(n => n.value).reverse()
+        let newYears = results.map((year)=> year.date)
+        let newValues = results.map((year)=> year.value)
         setCountry(country)
-        setResults(results)
+        setYears(newYears)
+        setValues(newValues)
     }
 
     const fetchCountryData = async (country)=>{
@@ -48,7 +59,7 @@ const Home = ({allResults})=> {
     
         let result = await res.json()
     
-        return result[1]?.map((year)=> ({date:year.date, value:year.value, country: year.country.value}))
+        return result[1]
     }
 
     return (
@@ -66,7 +77,7 @@ const Home = ({allResults})=> {
             />
             <h1>{selectedCountry.label}</h1> 
 
-            <Chart unData={results}/>
+            <Chart years={years} values = {values}/>
             </Layout>
         </>
     )
