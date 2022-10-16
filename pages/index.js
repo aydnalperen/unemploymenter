@@ -5,6 +5,21 @@ import Chart from '../components/chart'
 import ChartComp from '../components/chart';
 
 const countryOptions = [
+    {value : "afg", label : "Afghanistan"},
+    {value : "alb", label : "Albania"},
+    {value : "dza", label : "Algeria"},
+    {value : "asm", label : "American Samoa"},
+    {value : "and", label : "Andorra"},
+    {value : "ago", label : "Angola"},
+    {value : "atg", label : "Antigua and Barbuda"},
+    {value : "arg", label : "Argentina"},
+    {value : "arm", label : "Armenia"},
+    {value : "abw", label : "Aruba"},
+    {value : "aus", label : "Australia"},
+    {value : "aut", label : "Austria"},
+    {value : "aze", label : "Azerbaijan"},
+    {value : "bhs", label : "Bahamas, The"},
+    
     {value : "us", label : "United States"},
     {value : "tur", label : "Turkiye"},
     {value : "gb", label : "United Kingdom"}
