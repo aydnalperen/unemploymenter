@@ -7,13 +7,8 @@ const countryOptions = [
     {value : "tur", label : "Turkiye"},
     {value : "uk", label : "United Kingdom"}
 ]
-const SelectBox = ()=>{
+const SelectBox = ({countryOptions,countryChangeHandler,selectedCountry})=>{
 
-    const [selectedCountry,setSelectedCountry] = React.useState('us')
-
-    const countryChangeHandler = (c)=>{
-        setSelectedCountry(c)
-    }
     return (
         <>
             <Select

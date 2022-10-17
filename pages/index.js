@@ -3,27 +3,10 @@ import Layout from '../components/layout'
 import Select from 'react-select';
 import Chart from '../components/chart'
 import ChartComp from '../components/chart';
+import SelectBox from '../components/selectBox';
 
-const countryOptions = [
-    {value : "afg", label : "Afghanistan"},
-    {value : "alb", label : "Albania"},
-    {value : "dza", label : "Algeria"},
-    {value : "asm", label : "American Samoa"},
-    {value : "and", label : "Andorra"},
-    {value : "ago", label : "Angola"},
-    {value : "atg", label : "Antigua and Barbuda"},
-    {value : "arg", label : "Argentina"},
-    {value : "arm", label : "Armenia"},
-    {value : "abw", label : "Aruba"},
-    {value : "aus", label : "Australia"},
-    {value : "aut", label : "Austria"},
-    {value : "aze", label : "Azerbaijan"},
-    {value : "bhs", label : "Bahamas, The"},
-    
-    {value : "us", label : "United States"},
-    {value : "tur", label : "Turkiye"},
-    {value : "gb", label : "United Kingdom"}
-]
+const countryOptions = require('../data/country_code')
+
 export const getServerSideProps = async () =>{
 
     const res = await fetch(
@@ -80,16 +63,7 @@ const Home = ({initYears, initValues})=> {
     return (
         <>
             <Layout>
-            <Select
-                id = "selectCountry"
-                instanceId="selectCountry"
-                name ="countries"
-                className = "multiselect"
-                classNamePrefix="select"
-                options = {countryOptions}
-                onChange = {countryChangeHandler}
-                placeHolder = {selectedCountry}
-            />
+            <SelectBox countryOptions={countryOptions} countryChangeHandler = {countryChangeHandler} selectedCountry = {selectedCountry}/>
             <h1>{selectedCountry.label}</h1> 
 
             <Chart years={years} values = {values}/>
