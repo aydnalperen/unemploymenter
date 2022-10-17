@@ -40,7 +40,7 @@ const Home = ({initYears, initValues})=> {
 
     const countryChangeHandler = async(country)=>{
         let results = await fetchCountryData(country.value)
-
+        if (results == null) return
         results = results.filter(n => n.value).reverse()
         let newYears = results.map((year)=> year.date)
         let newValues = results.map((year)=> year.value)

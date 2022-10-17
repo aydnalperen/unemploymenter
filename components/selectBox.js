@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from "react-select";
+import Select from "react-tailwindcss-select";
 
 
 const countryOptions = [
@@ -9,9 +9,13 @@ const countryOptions = [
 ]
 const SelectBox = ({countryOptions,countryChangeHandler,selectedCountry})=>{
 
+    
     return (
         <>
             <Select
+                
+                placeHolder = {selectedCountry}
+                value = {selectedCountry}
                 id = "selectCountry"
                 instanceId="selectCountry"
                 name ="countries"
@@ -19,7 +23,7 @@ const SelectBox = ({countryOptions,countryChangeHandler,selectedCountry})=>{
                 classNamePrefix="select"
                 options = {countryOptions}
                 onChange = {countryChangeHandler}
-                placeHolder = {selectedCountry}
+                
             />
         </>
     );
