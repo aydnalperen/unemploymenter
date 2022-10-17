@@ -5,7 +5,7 @@ import Chart from '../components/chart'
 import ChartComp from '../components/chart';
 import SelectBox from '../components/selectBox';
 
-const countryOptions = require('../data/country_code')
+const countryOptions = require('../data/country_codes')
 
 export const getServerSideProps = async () =>{
 
