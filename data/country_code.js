@@ -247,5 +247,4 @@ module.exports = [
 { value : "YEM" ,label : "Yemen" },
 { value : "ZMB" ,label : "Zambia" },
 { value : "ZWE" ,label : "Zimbabwe" },
-{ value : "ALA" ,label : "Ã…land Islands" }
 ]
