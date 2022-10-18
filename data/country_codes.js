@@ -1,4 +1,4 @@
-module.exports = [
+export default [
 { value : "AFG" ,label : "Afghanistan" },
 { value : "ALB" ,label : "Albania" },
 { value : "DZA" ,label : "Algeria" },

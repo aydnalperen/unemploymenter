@@ -1,28 +1,23 @@
 import React from 'react';
-import Select from "react-tailwindcss-select";
+import Select from "react-select";
 
 
-const countryOptions = [
-    {value : "us", label : "United States"},
-    {value : "tur", label : "Turkiye"},
-    {value : "uk", label : "United Kingdom"}
-]
-const SelectBox = ({countryOptions,countryChangeHandler,selectedCountry})=>{
+const SelectBox = ({options,changeHandler,placeHolder,id,name})=>{
 
     
     return (
         <>
             <Select
                 
-                placeHolder = {selectedCountry}
-                value = {selectedCountry}
-                id = "selectCountry"
-                instanceId="selectCountry"
-                name ="countries"
+                placeHolder = {placeHolder}
+                value = {placeHolder}
+                id ={id}
+                instanceId={id}
+                name ={name}
                 className = "multiselect"
                 classNamePrefix="select"
-                options = {countryOptions}
-                onChange = {countryChangeHandler}
+                options = {options}
+                onChange = {changeHandler}
                 
             />
         </>
