@@ -43,6 +43,7 @@ const ChartComp = ({years, values,graphLabel})=>{
             {
                 label : graphLabel,
                 data: values,
+                backgroundColor : "grey"
             }
         ],
     }

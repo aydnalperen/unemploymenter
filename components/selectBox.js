@@ -14,7 +14,7 @@ const customStyles = {
     container :(provided, state) => ({
       ...provided,
       width: 500,
-      padding: 20,
+      padding: 20 ,
     })
 }
 
@@ -25,16 +25,13 @@ const SelectBox = ({options,changeHandler,placeHolder,id,name})=>{
         <>
             <Select
                 styles={customStyles}
-                width = '500px'
                 placeHolder = {placeHolder}
                 value = {placeHolder}
                 id ={id}
                 instanceId={id}
                 name ={name}
-                
                 options = {options}
                 onChange = {changeHandler}
-                
             />
         </>
     );
