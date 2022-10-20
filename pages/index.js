@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import Layout from '../components/layout'
-import Select from 'react-select';
 import Chart from '../components/chart'
-import ChartComp from '../components/chart';
 import SelectBox from '../components/selectBox';
+import DataTable from '../components/table';
 
 const CountryOptions = require('../data/country_codes').default
 const IndicatorOptions = require('../data/indicator_codes').default
@@ -23,6 +22,7 @@ export const getServerSideProps = async () =>{
     
     return {
         props :{
+            initTable : years,
             initYears : years.map((year) => year.date),
             initValues : years.map((year)=> year.value)
         }
@@ -31,7 +31,7 @@ export const getServerSideProps = async () =>{
 
 
 
-const Home = ({initYears, initValues})=> {
+const Home = ({initYears, initValues,initTable})=> {
     
     const [selectedCountry, setCountry] = useState({value : "usa", label : "United States of America"})
 
@@ -39,6 +39,8 @@ const Home = ({initYears, initValues})=> {
 
     const [years, setYears] = useState(initYears)
     const [values, setValues] = useState(initValues)
+
+    const [tableData, setTableData]  = useState(initTable)
 
 
     const countryChangeHandler = async(country)=>{
@@ -49,6 +51,8 @@ const Home = ({initYears, initValues})=> {
             return
         }
         results = results.filter(n => n.value).reverse()
+        setTableData(results)
+
         let newYears = results.map((year)=> year.date)
         let newValues = results.map((year)=> year.value)
         setYears(newYears)
@@ -63,6 +67,8 @@ const Home = ({initYears, initValues})=> {
             return
         }
         results = results.filter(n=> n.value).reverse()
+
+        setTableData(results)
 
         let newYears = results.map((year)=> year.date)
         let newValues = results.map((year)=> year.value)
@@ -92,6 +98,8 @@ const Home = ({initYears, initValues})=> {
             <h1>{selectedCountry.label}</h1> 
 
             <Chart years={years} values = {values} graphLabel = {selectedIndicator.label}/>
+
+            <DataTable list={tableData}/>
             </Layout>
         </>
     )

@@ -179,7 +179,6 @@ export default[
     {value:'SE.PRM.CMPL.MA.ZS',label:'Gross graduation ratio, primary, male (%)'},
     {value:'SE.PRM.CMPL.ZS',label:'Gross graduation ratio, primary, total (%)'},
     {value:'SE.SEC.ENRL.FE.VO.ZS',label:'Vocational and Technical enrolment (% of total secondary enrolment), female'},
-    {value:'SE.SEC.ENRL.MA.VO.ZS',label:'Share of male students in secondary education enrolled in vocational programmes (%)'},
     {value:'SE.TER.GRAD.FE.AG.ZS',label:'Female share of graduates in Agriculture, Forestry, Fisheries and Veterinary programmes, tertiary (%)'},
     {value:'SE.TER.GRAD.FE.ED.ZS',label:'Female share of graduates in Education programmes, tertiary (%)'},
     {value:'SE.TER.GRAD.FE.EN.ZS',label:'Female share of graduates in Engineering, Manufacturing and Construction programmes, tertiary (%)'},
