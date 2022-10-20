@@ -224,7 +224,7 @@ export default [
 { value : "UGA" ,label : "Uganda" },
 { value : "UKR" ,label : "Ukraine" },
 { value : "ARE" ,label : "United Arab Emirates" },
-{ value : "GBR" ,label : "United Kingdom of Great Britain and Northern Ireland" },
+{ value : "GBR" ,label : "United Kingdom" },
 { value : "UMI" ,label : "United States Minor Outlying Islands" },
 { value : "USA" ,label : "United States of America" },
 { value : "URY" ,label : "Uruguay" },

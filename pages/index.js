@@ -33,8 +33,9 @@ export const getServerSideProps = async () =>{
 
 const Home = ({initYears, initValues})=> {
     
-    const [selectedCountry, setCountry] = useState({value : "usa", label : "United States"})
-    const [selectedIndicator, setIndicator] = useState ({value:"SL.UEM.TOTL.ZS", label: "Unemployment"})
+    const [selectedCountry, setCountry] = useState({value : "usa", label : "United States of America"})
+
+    const [selectedIndicator, setIndicator] = useState ({value:"SL.UEM.TOTL.ZS", label: "Unemployment, total (% of total labor force)"})
 
     const [years, setYears] = useState(initYears)
     const [values, setValues] = useState(initValues)
