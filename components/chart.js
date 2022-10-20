@@ -35,20 +35,20 @@ const options = {
         },
     },
 };
-const ChartComp = ({years, values})=>{
+const ChartComp = ({years, values,graphLabel})=>{
 
     const data = {
         labels : years,
         datasets: [
             {
-                label : "% of Unemployment",
+                label : graphLabel,
                 data: values,
             }
         ],
     }
     return (
         <>
-            <div className='w-1/2'>
+            <div className='w-3/5'>
                 <Bar data = {data}  options = {options} />
             </div>
         </>

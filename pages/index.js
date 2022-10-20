@@ -11,7 +11,7 @@ const IndicatorOptions = require('../data/indicator_codes').default
 export const getServerSideProps = async () =>{
 
     const res = await fetch(
-        'http://api.worldbank.org/v2/country/us/indicator/SL.UEM.TOTL.ZS?format=json'
+        'http://api.worldbank.org/v2/country/usa/indicator/SL.UEM.TOTL.ZS?format=json'
     )
     let result = await res.json()
 
@@ -33,7 +33,7 @@ export const getServerSideProps = async () =>{
 
 const Home = ({initYears, initValues})=> {
     
-    const [selectedCountry, setCountry] = useState({value : "us", label : "United States"})
+    const [selectedCountry, setCountry] = useState({value : "usa", label : "United States"})
     const [selectedIndicator, setIndicator] = useState ({value:"SL.UEM.TOTL.ZS", label: "Unemployment"})
 
     const [years, setYears] = useState(initYears)
@@ -42,23 +42,30 @@ const Home = ({initYears, initValues})=> {
 
     const countryChangeHandler = async(country)=>{
         let results = await fetchCountryData(country.value, selectedIndicator.value)
-        if (results == null) return
+        setCountry(country)
+        if (results == null) {
+            setValues(null)
+            return
+        }
         results = results.filter(n => n.value).reverse()
         let newYears = results.map((year)=> year.date)
         let newValues = results.map((year)=> year.value)
-        setCountry(country)
         setYears(newYears)
         setValues(newValues)
     }
 
     const indicatorChangeHandler = async(indicator) => {
         let results = await fetchCountryData(selectedCountry.value, indicator.value)
-        if (results == null) return
+        setIndicator(indicator)
+        if (results == null) {
+            setValues(null)
+            return
+        }
         results = results.filter(n=> n.value).reverse()
 
         let newYears = results.map((year)=> year.date)
         let newValues = results.map((year)=> year.value)
-        setIndicator(indicator)
+        
         setYears(newYears)
         setValues(newValues)
         
@@ -83,7 +90,7 @@ const Home = ({initYears, initValues})=> {
             <SelectBox options={IndicatorOptions} changeHandler = {indicatorChangeHandler} placeHolder = {selectedIndicator} id = "indicators" name = "indicators"/>
             <h1>{selectedCountry.label}</h1> 
 
-            <Chart years={years} values = {values}/>
+            <Chart years={years} values = {values} graphLabel = {selectedIndicator.label}/>
             </Layout>
         </>
     )
