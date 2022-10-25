@@ -1,4 +1,6 @@
 export default [
+{ value : "USA" ,label : "United States of America" },
+{ value : "EU" ,label : "European Union" },
 { value : "AFG" ,label : "Afghanistan" },
 { value : "ALB" ,label : "Albania" },
 { value : "DZA" ,label : "Algeria" },
@@ -226,7 +228,6 @@ export default [
 { value : "ARE" ,label : "United Arab Emirates" },
 { value : "GBR" ,label : "United Kingdom" },
 { value : "UMI" ,label : "United States Minor Outlying Islands" },
-{ value : "USA" ,label : "United States of America" },
 { value : "URY" ,label : "Uruguay" },
 { value : "UZB" ,label : "Uzbekistan" },
 { value : "VUT" ,label : "Vanuatu" },

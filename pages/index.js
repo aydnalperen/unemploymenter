@@ -99,7 +99,7 @@ const Home = ({initYears, initValues,initTable})=> {
 
             <Chart years={years} values = {values} graphLabel = {selectedIndicator.label}/>
 
-            <DataTable list={tableData}/>
+            {/* <DataTable list={tableData}/> */}
             </Layout>
         </>
     )

@@ -2,10 +2,9 @@ import { Table } from "@nextui-org/react";
 
 const DataTable = ({list})=>  {
   return (
-    <Table
+    <div className="w-3/5">
+            <Table
     aria-label="Example static collection table"
-    
-
     >
       <Table.Header>
         <Table.Column key="date" >
@@ -20,7 +19,7 @@ const DataTable = ({list})=>  {
             return (
                 <Table.Row key={element.date}>
                     <Table.Cell>{element.date}</Table.Cell>
-                    <Table.Cell>{element.value}</Table.Cell>
+                    <Table.Cell>{element.value.toFixed(3)}</Table.Cell>
                 </Table.Row>
             )
         })
@@ -31,10 +30,11 @@ const DataTable = ({list})=>  {
         shadow
         noMargin
         align="center"
-        rowsPerPage={7}
-        onPageChange={(page) => console.log({ page })}
+        rowsPerPage={6}
+        
       />
     </Table>
+    </div>
   );
 }
 
