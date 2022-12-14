@@ -49,7 +49,7 @@ const ChartComp = ({years, values,graphLabel})=>{
     }
     return (
         <>
-            <div className='lg:w-3/5 md:w-5/6 sm:w-1'>
+            <div className='lg:w-3/5 md:w-5/6 sm:w-3/4'>
                 <Bar data = {data}  options = {options} />
             </div>
         </>
