@@ -10,7 +10,7 @@ const IndicatorOptions = require('../data/indicator_codes').default
 export const getServerSideProps = async () =>{
 
     const res = await fetch(
-        'http://api.worldbank.org/v2/country/usa/indicator/SL.UEM.TOTL.ZS?format=json'
+        'https://api.worldbank.org/v2/country/usa/indicator/SL.UEM.TOTL.ZS?format=json'
     )
     let result = await res.json()
 
@@ -81,7 +81,7 @@ const Home = ({initYears, initValues,initTable})=> {
     const fetchCountryData = async (country,indicator)=>{
         
         const res = await fetch(
-            `http://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json`
+            `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json`
         )
             
         let result = await res.json()
