@@ -8,8 +8,8 @@ const Navbar = ()=>{
                 <Link href="/" className="flex items-center " >
                     <Image 
                         src="/logo.png"
-                        width={220}
-                        height={220}
+                        width={200}
+                        height={200}
                         alt="logo"
                     />
                 </Link>       
