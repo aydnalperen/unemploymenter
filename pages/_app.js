@@ -10,7 +10,7 @@ function MyApp({ Component, pageProps }) {
         <meta name="keywords" 
         content="statistics, statisticer, inflation, inflation in usa, inflation germany, inflation europe, inflation usa,world bank data,
         world bank statistics, world bank api,umemployment usa, united states statistics, human development index, statistics by year,
-        
+        stat graphs, statistics graphics, simple statistics
         " />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="all" />
