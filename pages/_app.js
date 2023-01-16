@@ -16,7 +16,8 @@ function MyApp({ Component, pageProps }) {
         <meta name="robots" content="all" />
         <meta name="googlebot" content="all" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8252929364939554"
-     crossorigin="anonymous"></script>
+          crossorigin="anonymous">
+        </script>
       </Head>
       <Component {...pageProps} />
     </>
