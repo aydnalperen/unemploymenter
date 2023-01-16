@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import Head from 'next/head'
-
+import Script from 'next/script'
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -15,10 +15,9 @@ function MyApp({ Component, pageProps }) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="robots" content="all" />
         <meta name="googlebot" content="all" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8252929364939554"
-          crossorigin="anonymous">
-        </script>
       </Head>
+      <Script async={true} src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8252929364939554"
+        crossorigin="anonymous" />
       <Component {...pageProps} />
     </>
   )
